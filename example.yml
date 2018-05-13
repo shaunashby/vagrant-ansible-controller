@@ -1,0 +1,10 @@
+---
+- name: Test Playbook Tasks
+  become: root
+  become_method: sudo
+  hosts: nodes
+  tasks:
+  - name: Run dummy command
+    command: 'ls -lart'
+    register: listing
+  - debug: var=listing.stdout_lines
